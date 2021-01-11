@@ -1,0 +1,15 @@
+[package]
+name = "util-rs"
+version = "0.1.0"
+authors = ["Gil Rtr <glrtr2003@gmail.com>"]
+edition = "2018"
+description = "general utilities for rust, currently only for user input"
+license = "WTFPL"
+documentation = "docs.rs/util-rs"
+homepage = "crates.io/crates/util-rs"
+repository = "https://github.com/GilRtr/util-rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log = "0.4.11"
