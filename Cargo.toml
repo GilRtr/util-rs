@@ -1,6 +1,6 @@
 [package]
 name = "util-rs"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Gil Rtr <glrtr2003@gmail.com>"]
 edition = "2018"
 description = "general utilities for rust, currently only for user input"

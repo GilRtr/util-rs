@@ -2,6 +2,10 @@ use std::str::FromStr;
 
 use crate::Prompt;
 
+pub fn prompt(msg: &str) -> Prompt {
+    Prompt::new().msg(msg)
+}
+
 pub fn input<T: FromStr>(msg: &str) -> Result<T, T::Err> {
     Prompt::new().msg(msg).get()
 }

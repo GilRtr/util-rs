@@ -5,7 +5,7 @@ use std::{
 
 use crate::Ignore;
 
-pub use ux::{input, input_string};
+pub use ux::{input, input_string, prompt};
 
 pub mod ux;
 
