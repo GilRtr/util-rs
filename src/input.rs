@@ -62,10 +62,10 @@ impl Prompt<'_> {
         self.buf
     }
 
-    pub fn get_until_ok<A, Ef>(&mut self, handle_error: Ef) -> A
+    pub fn get_until_ok<A, Ef>(&mut self, mut handle_error: Ef) -> A
     where
         A: FromStr,
-        Ef: Fn(A::Err),
+        Ef: FnMut(A::Err),
     {
         self.get().unwrap_or_else(|err| {
             handle_error(err);
@@ -73,10 +73,10 @@ impl Prompt<'_> {
         })
     }
 
-    pub fn get_until_ok_with<T, E, F, Ef>(&mut self, action: F, handle_error: Ef) -> T
+    pub fn get_until_ok_with<T, E, F, Ef>(&mut self, mut action: F, mut handle_error: Ef) -> T
     where
-        F: Fn(&str) -> Result<T, E>,
-        Ef: Fn(E),
+        F: FnMut(&str) -> Result<T, E>,
+        Ef: FnMut(E),
     {
         action(self.get_str()).unwrap_or_else(|err| {
             handle_error(err);

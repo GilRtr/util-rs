@@ -26,15 +26,15 @@ impl Prompt<'_> {
     pub fn read_until_ok<A, Ef>(&mut self, handle_error: Ef) -> A
     where
         A: FromStr,
-        Ef: Fn(A::Err),
+        Ef: FnMut(A::Err),
     {
         self.get_until_ok(handle_error)
     }
 
     pub fn read_until_ok_with<T, E, F, Ef>(&mut self, action: F, handle_error: Ef) -> T
     where
-        F: Fn(&str) -> Result<T, E>,
-        Ef: Fn(E),
+        F: FnMut(&str) -> Result<T, E>,
+        Ef: FnMut(E),
     {
         self.get_until_ok_with(action, handle_error)
     }
